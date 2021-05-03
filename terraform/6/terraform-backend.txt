@@ -1,0 +1,16 @@
+terraform {
+  backend "s3" {
+    endpoint = "https://s3.domain.com"
+    key = "terraform.tfstate"
+    region = "main"
+    skip_requesting_account_id = true
+    skip_credentials_validation = true
+    skip_get_ec2_platforms = true
+    skip_metadata_api_check = true
+    skip_region_validation = true
+  }
+}
+
+# https://dickingwithdocker.com/2019/02/terraform-s3-remote-state-with-minio-and-docker/
+# from iac book....you can use consul
+
