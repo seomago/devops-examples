@@ -1,5 +1,5 @@
 ## intro terraform 
-
+Terraform is a famous declarative infrastructure as code IAC tool.
 
 ## arkade terraform install
 
@@ -23,7 +23,7 @@ ls terraform.tfstate*
 * terraform remote push (minio) S3 / consul from iac book
 
 
-Terraform is a famous declarative infrastructure as code IAC tool.
+
 
 ## reference
 

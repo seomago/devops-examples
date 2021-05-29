@@ -10,7 +10,7 @@
 #}
 
 
-# Devops exercise container 2
+# Devops exercise container 1
 resource "docker_container" "hello_world" {
   name  = "de_hello_world"
   image = "tutum/hello-world"
@@ -23,7 +23,7 @@ resource "docker_container" "hello_world" {
    }
 }
 
-# Devops exercise container 3
+# Devops exercise container 2
 resource "docker_container" "adminer" {
   name  = "de_adminer"
   image = "adminer:4.8.0"

@@ -1,0 +1,176 @@
+[0m
+# module.docker_wordpress.docker_container.db:
+resource "docker_container" "db" {
+    [1m[0mattach[0m[0m            = false
+    [1m[0mcommand[0m[0m           = [
+        "mysqld",
+    ]
+    [1m[0mcpu_shares[0m[0m        = 0
+    [1m[0mentrypoint[0m[0m        = [
+        "docker-entrypoint.sh",
+    ]
+    [1m[0menv[0m[0m               = [
+        "MYSQL_DATABASE=wordpress",
+        "MYSQL_PASSWORD=wordpress",
+        "MYSQL_ROOT_PASSWORD=wordpress",
+        "MYSQL_USER=wordpress",
+    ]
+    [1m[0mgateway[0m[0m           = "172.20.0.1"
+    [1m[0mhostname[0m[0m          = "54b8f1043628"
+    [1m[0mid[0m[0m                = "54b8f1043628ab73368a2baa18aafddfa8520da78d2bd17f76b578443227ada5"
+    [1m[0mimage[0m[0m             = "sha256:87eca374c0ed97f0f0b504174b0d22b0a0add454414c0dbf5ae43870369f6854"
+    [1m[0minit[0m[0m              = false
+    [1m[0mip_address[0m[0m        = "172.20.0.2"
+    [1m[0mip_prefix_length[0m[0m  = 16
+    [1m[0mipc_mode[0m[0m          = "private"
+    [1m[0mlog_driver[0m[0m        = "json-file"
+    [1m[0mlogs[0m[0m              = false
+    [1m[0mmax_retry_count[0m[0m   = 0
+    [1m[0mmemory[0m[0m            = 0
+    [1m[0mmemory_swap[0m[0m       = 0
+    [1m[0mmust_run[0m[0m          = true
+    [1m[0mname[0m[0m              = "db"
+    [1m[0mnetwork_data[0m[0m      = [
+        {
+            gateway                   = "172.20.0.1"
+            global_ipv6_address       = ""
+            global_ipv6_prefix_length = 0
+            ip_address                = "172.20.0.2"
+            ip_prefix_length          = 16
+            ipv6_gateway              = ""
+            network_name              = "wordpress_net"
+        },
+    ]
+    [1m[0mnetwork_mode[0m[0m      = "wordpress_net"
+    [1m[0mprivileged[0m[0m        = false
+    [1m[0mpublish_all_ports[0m[0m = false
+    [1m[0mread_only[0m[0m         = false
+    [1m[0mremove_volumes[0m[0m    = true
+    [1m[0mrestart[0m[0m           = "always"
+    [1m[0mrm[0m[0m                = false
+    [1m[0msecurity_opts[0m[0m     = []
+    [1m[0mshm_size[0m[0m          = 64
+    [1m[0mstart[0m[0m             = true
+    [1m[0mstdin_open[0m[0m        = false
+    [1m[0mtty[0m[0m               = false
+
+    networks_advanced {
+        [1m[0maliases[0m[0m = []
+        [1m[0mname[0m[0m    = "wordpress_net"
+    }
+
+    volumes {
+        [1m[0mcontainer_path[0m[0m = "/var/lib/mysql/"
+        [1m[0mhost_path[0m[0m      = "/tt/wordpressdb/"
+        [1m[0mvolume_name[0m[0m    = "db_data"
+    }
+}
+
+# module.docker_wordpress.docker_container.wordpress:
+resource "docker_container" "wordpress" {
+    [1m[0mattach[0m[0m            = false
+    [1m[0mcommand[0m[0m           = [
+        "apache2-foreground",
+    ]
+    [1m[0mcpu_shares[0m[0m        = 0
+    [1m[0mentrypoint[0m[0m        = [
+        "docker-entrypoint.sh",
+    ]
+    [1m[0menv[0m[0m               = [
+        "WORDPRESS_DB_HOST=db:3306",
+        "WORDPRESS_DB_NAME=wordpress",
+        "WORDPRESS_DB_PASSWORD=wordpress",
+        "WORDPRESS_DB_USER=wordpress",
+    ]
+    [1m[0mgateway[0m[0m           = "172.20.0.1"
+    [1m[0mhostname[0m[0m          = "a3ace04e6c60"
+    [1m[0mid[0m[0m                = "a3ace04e6c60b0a23421f917d691625e0e58dbdd6afcdd8ec9ab0f0e03b10145"
+    [1m[0mimage[0m[0m             = "sha256:c01290f258b3507784b95c9c163a56015ca5bd3978877b84c64887df3cfdb6e1"
+    [1m[0minit[0m[0m              = false
+    [1m[0mip_address[0m[0m        = "172.20.0.3"
+    [1m[0mip_prefix_length[0m[0m  = 16
+    [1m[0mipc_mode[0m[0m          = "private"
+    [1m[0mlog_driver[0m[0m        = "json-file"
+    [1m[0mlogs[0m[0m              = false
+    [1m[0mmax_retry_count[0m[0m   = 0
+    [1m[0mmemory[0m[0m            = 0
+    [1m[0mmemory_swap[0m[0m       = 0
+    [1m[0mmust_run[0m[0m          = true
+    [1m[0mname[0m[0m              = "wordpress"
+    [1m[0mnetwork_data[0m[0m      = [
+        {
+            gateway                   = "172.20.0.1"
+            global_ipv6_address       = ""
+            global_ipv6_prefix_length = 0
+            ip_address                = "172.20.0.3"
+            ip_prefix_length          = 16
+            ipv6_gateway              = ""
+            network_name              = "wordpress_net"
+        },
+    ]
+    [1m[0mnetwork_mode[0m[0m      = "default"
+    [1m[0mprivileged[0m[0m        = false
+    [1m[0mpublish_all_ports[0m[0m = false
+    [1m[0mread_only[0m[0m         = false
+    [1m[0mremove_volumes[0m[0m    = true
+    [1m[0mrestart[0m[0m           = "always"
+    [1m[0mrm[0m[0m                = false
+    [1m[0msecurity_opts[0m[0m     = []
+    [1m[0mshm_size[0m[0m          = 64
+    [1m[0mstart[0m[0m             = true
+    [1m[0mstdin_open[0m[0m        = false
+    [1m[0mtty[0m[0m               = false
+    [1m[0mworking_dir[0m[0m       = "/var/www/html"
+
+    networks_advanced {
+        [1m[0maliases[0m[0m = []
+        [1m[0mname[0m[0m    = "wordpress_net"
+    }
+
+    ports {
+        [1m[0mexternal[0m[0m = 8080
+        [1m[0minternal[0m[0m = 80
+        [1m[0mip[0m[0m       = "0.0.0.0"
+        [1m[0mprotocol[0m[0m = "tcp"
+    }
+}
+
+# module.docker_wordpress.docker_network.wordpress:
+resource "docker_network" "wordpress" {
+    [1m[0mattachable[0m[0m  = false
+    [1m[0mdriver[0m[0m      = "bridge"
+    [1m[0mid[0m[0m          = "012f4699aee26f0be16c36a8d31e9be5f74f66615470c39673063570741ff384"
+    [1m[0mingress[0m[0m     = false
+    [1m[0minternal[0m[0m    = false
+    [1m[0mipam_driver[0m[0m = "default"
+    [1m[0mipv6[0m[0m        = false
+    [1m[0mname[0m[0m        = "wordpress_net"
+    [1m[0moptions[0m[0m     = {}
+    [1m[0mscope[0m[0m       = "local"
+
+    ipam_config {
+        [1m[0maux_address[0m[0m = {}
+        [1m[0mgateway[0m[0m     = "172.20.0.1"
+        [1m[0msubnet[0m[0m      = "172.20.0.0/16"
+    }
+}
+
+# module.docker_wordpress.docker_volume.db_data:
+resource "docker_volume" "db_data" {
+    [1m[0mdriver[0m[0m      = "local"
+    [1m[0mdriver_opts[0m[0m = {
+        "device" = "/tt/wordpressdb/"
+        "o"      = "bind"
+        "type"   = "none"
+    }
+    [1m[0mid[0m[0m          = "db_data"
+    [1m[0mmountpoint[0m[0m  = "/var/lib/docker/volumes/db_data/_data"
+    [1m[0mname[0m[0m        = "db_data"
+}
+
+
+Outputs:
+
+docker_ip_db = "172.20.0.2"
+docker_ip_wordpress = "172.20.0.3"
+docker_volume = "/tt/wordpressdb/"[0m[0m

@@ -1,0 +1,34 @@
+version: '2'
+services:
+  #nginx-proxy:
+  #  image: jwilder/nginx-proxy
+  #  ports:
+  #    - "80:80"
+  #  volumes:
+  #    - /var/run/docker.sock:/tmp/docker.sock:ro
+
+
+  whoami1:
+    image: jwilder/whoami
+    environment:
+      - VIRTUAL_HOST=preprod.aa.com,adminpre.aa.com
+  whoami2:
+    image: jwilder/whoami
+    environment:
+      - VIRTUAL_HOST=preprod.aa.com
+
+
+  adminer1:
+    image: adminer:4.8.0
+    environment:
+      - VIRTUAL_HOST=prod.aa.com
+  #adminer2:
+  #  image: adminer:4.8.0
+  #  environment:
+  #    - VIRTUAL_HOST=prod.aa.com
+
+
+
+
+#easymysql
+#curl -is aa.com

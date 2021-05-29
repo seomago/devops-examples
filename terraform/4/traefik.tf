@@ -1,6 +1,6 @@
 # Contenedor Traefik 
 resource "docker_container" "traefik" {
-  name  = "cduser_traefik"
+  name  = "my_traefik"
   image = "traefik:v2.1.4"
   command = ["--entrypoints.web.address=:80", "--entrypoints.websecure.address=:443", "--providers.docker", "--api", "--api.dashboard=true", "--log.level=ERROR", "--accesslog.filepath=/Users/nacho/terraform/files/traefik/log/access.log", "--accesslog.format=json", "--accesslog.filters.statuscodes=200,300-302", "--accesslog.filters.retryattempts", "--accesslog.filters.minduration=10ms", "--certificatesresolvers.leresolver.acme.httpchallenge=true", "--certificatesresolvers.leresolver.acme.email=nombre@email.com", "--certificatesresolvers.leresolver.acme.storage=/acme.json", "--certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web"]
 

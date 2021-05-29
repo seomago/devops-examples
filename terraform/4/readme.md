@@ -7,3 +7,9 @@ En este ejemplo, un poco más complejo que el anterior, voy a desplegar con Terr
 Este ejemplo, te servirá de manera práctica para tener un wordpress, con su base de datos, ambos, por detrás de un Reverse Proxy con su configuración para que obtenga certificados SSL de Lets Encrypt. También te mostrará como usar una serie de recursos de Terraform, tales volumenes, labels, commandos y variables de entorno.
 
 Si ves que se puede mejorar, hacer un fork y luego hace un Pull Request. 
+
+
+Traefik
+
+a.com
+c.com
