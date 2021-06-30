@@ -3,6 +3,7 @@
 https://github.com/microservices-demo/microservices-demo
 logging fluentd and elasticsearch
 locust python load performance 
+
 ## logging fluentd elasticsearch
 https://github.com/microservices-demo/microservices-demo/blob/master/deploy/docker-compose/docker-compose.logging.yml
 https://github.com/microservices-demo/microservices-demo/blob/master/deploy/docker-compose/docker-compose.yml
@@ -12,6 +13,7 @@ https://docs.bitnami.com/kubernetes/apps/fluentd/
 ## References 2
 https://github.com/aminueza/terraform-provider-minio
 https://github.com/severalnines/ansible-clustercontrol
+https://github.com/bregman-arie/devops-exercises
 
 ## references kube
 devops tools k9s
@@ -39,3 +41,14 @@ Yves Rougy : https://www.youtube.com/channel/UCfsE...​
 Tonton Jo : https://www.youtube.com/channel/UCnED
 
 @grafikart_fr @Cookieconnecte @KrustyHack (pas forcement 100% linux mais qui l'aborde un peu)
+
+## AWS formation
+
+https://github.com/open-guides/og-aws
+https://github.com/keenanromain/AWS-SAA-C02-Study-Guide
+
+https://awsclibuilder.com/home/services/ec2
+https://github.com/wallix/awless
+https://github.com/donnemartin/awesome-aws
+instances EC2
+https://instances.vantage.sh/

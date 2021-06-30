@@ -29,7 +29,7 @@ If you like this project and you want to contribute, you're more than welcome to
    4. [Reverse proxy Traefik with wordpress container](./terraform/4) 
    5. [Nginx Ghost example](./terraform/5)
    6. [Minio S3 container](./terraform/6)
-   7. [Terraform and modules](./terraform/7)
+   7. [Terraform modules](./terraform/7)
    8. [kubernetes kind provider](./terraform/8)
    9. Terraform AWS EKS cloud examples...
 

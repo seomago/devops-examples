@@ -18,8 +18,8 @@ provider "docker" {
 
 # Volume database
 resource "docker_volume" "db_data" {
-  name = "db_data"
-  driver = "local"
+  name           = "db_data"
+  driver         = "local"
   driver_opts = {
     o = "bind"
     type = "none"
@@ -34,6 +34,7 @@ resource "docker_network" "wordpress" {
 resource "docker_container" "db" {
   name  = "db"
   image = "mysql:5.7"
+  #image = "mysql@sha256:87eca374c0ed97f0f0b504174b0d22b0a0add454414c0dbf5ae43870369f6854"
   restart = "always"
   network_mode = "wordpress_net"
   env = [
@@ -49,6 +50,7 @@ resource "docker_container" "db" {
     host_path = "/tt/wordpressdb/"
     container_path = "/var/lib/mysql/"
     volume_name = "db_data"
+    read_only      = "false"
   }
 }
 
