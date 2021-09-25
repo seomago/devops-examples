@@ -33,10 +33,10 @@ If you like this project and you want to contribute, you're more than welcome to
    8. [kubernetes kind provider](./terraform/8)
    9. Terraform AWS EKS cloud examples...
 
-## 2. Docker examples  
+## 2. Docker and Docker-compose examples  
    1. [Docker-compose App 3-tier install](./docker/1)
    2. [App 3 tier Multi front nodes with LB without docker](./docker/2)
-   3. [Docker-compose App Multi front](./docker/3)
+   3. [Docker-compose Portainer 2.0 + App Multi front](./docker/3)
    4. more to come...
 
 ## 3. Kubernetes examples

@@ -4,9 +4,12 @@ terraform {
   required_providers {
     # We recommend pinning to the specific version of the Docker Provider you're using
     # since new versions are released frequently
+    # .terraform.lock.hcl
+    # https://registry.terraform.io/providers/kreuzwerker/docker/2.12.2
     docker = {
       source  = "kreuzwerker/docker"
-      version = "2.11.0"
+      #version = "2.11.0"
+      #version = "2.13.0"
     }
   }
 }

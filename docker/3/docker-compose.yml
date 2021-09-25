@@ -1,0 +1,14 @@
+#portainer
+#https://thehomelab.wiki/books/docker/page/portainer-20-update
+version: '2'
+
+services:
+  portainer:
+    image: portainer/portainer-ce:2.6.3
+    command: -H unix:///var/run/docker.sock
+    restart: always
+    ports:
+      - 9001:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /data/portainer_data:/data

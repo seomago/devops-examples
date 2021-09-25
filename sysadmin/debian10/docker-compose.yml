@@ -1,0 +1,19 @@
+version: '3.0'
+services: 
+
+  #debian10 with systemd priximmo
+  debian102:    
+    container_name: debian102a
+    hostname: debian102a
+    image: priximmo/buster-systemd-ssh:latest
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - .:/data
+      - ./srv:/srv
+    #networks:
+    #  - bridge
+    ports:
+      - 80
+    environment:
+      - VIRTUAL_HOST=prod.aa.com
