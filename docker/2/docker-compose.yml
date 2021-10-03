@@ -11,24 +11,23 @@ services:
   whoami1:
     image: jwilder/whoami
     environment:
-      - VIRTUAL_HOST=preprod.aa.com,adminpre.aa.com
+      - VIRTUAL_HOST=preprod.aa.com
   whoami2:
     image: jwilder/whoami
     environment:
       - VIRTUAL_HOST=preprod.aa.com
-
-
   adminer1:
-    image: adminer:4.8.0
+    image: dehy/adminer:4.8.0
     environment:
-      - VIRTUAL_HOST=prod.aa.com
+      - VIRTUAL_HOST=preprod.aa.com,adminpre.aa.com
   #adminer2:
-  #  image: adminer:4.8.0
+  #  image: dehy/adminer:4.8.0
   #  environment:
   #    - VIRTUAL_HOST=prod.aa.com
 
 
 
-
+#docker pull jwilder/nginx-proxy
+#docker pull dehy/adminer:4.8.0
 #easymysql
 #curl -is aa.com

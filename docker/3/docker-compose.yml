@@ -1,5 +1,6 @@
 #portainer
 #https://thehomelab.wiki/books/docker/page/portainer-20-update
+# docker pull portainer/portainer-ce:2.6.3
 version: '2'
 
 services:

@@ -1,10 +1,13 @@
 version: '3.0'
 services: 
-
+  # https://hub.docker.com/r/priximmo/buster-systemd-ssh/tags?page=1&ordering=last_updated
+  # root:password
+  # docker pull priximmo/buster-systemd-ssh:latest
   #debian10 with systemd priximmo
-  debian102:    
-    container_name: debian102a
-    hostname: debian102a
+
+  debian101:    
+    container_name: debian101
+    hostname: debian101
     image: priximmo/buster-systemd-ssh:latest
     privileged: true
     volumes:
@@ -17,3 +20,18 @@ services:
       - 80
     environment:
       - VIRTUAL_HOST=prod.aa.com
+  debian102:    
+    container_name: debian102
+    hostname: debian102
+    image: priximmo/buster-systemd-ssh:latest
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - .:/data
+      - ./srv:/srv
+    #networks:
+    #  - bridge
+    ports:
+      - 80
+    environment:
+      - VIRTUAL_HOST=preprod.aa.com

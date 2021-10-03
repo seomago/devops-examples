@@ -1,5 +1,4 @@
-https://thruk.nbs-system.com/thruk/cgi-bin/extinfo.cgi?type=2&host=iph-de-preprod.solr-master-1&service=service_nrpe_disk_data
-## Few helpful commands.
+## Few helpful docker commands
 
 * [`docker start`](https://docs.docker.com/engine/reference/commandline/start) starts a container so it is running.
 * [`docker stop`](https://docs.docker.com/engine/reference/commandline/stop) stops a running container.

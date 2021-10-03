@@ -34,10 +34,11 @@ If you like this project and you want to contribute, you're more than welcome to
    9. Terraform AWS EKS cloud examples...
 
 ## 2. Docker and Docker-compose examples  
-   1. [Docker-compose App 3-tier install](./docker/1)
-   2. [App 3 tier Multi front nodes with LB without docker](./docker/2)
-   3. [Docker-compose Portainer 2.0 + App Multi front](./docker/3)
-   4. more to come...
+   1. [App 3-tier ngix + mono front ghost + mysql](./docker/1)
+   2. [Adminer/Ghost Multi front nodes with LB without docker](./docker/2)
+   3. [Portainer 2.0 + App Multi front](./docker/3)
+   4. [freshrss app](./docker/4)
+   5. more to come...
 
 ## 3. Kubernetes examples
    1. [Creating cluster with kind](./kubernetes/1) / [video](https://youtu.be/fhYSKEy0s8w)
@@ -50,7 +51,7 @@ If you like this project and you want to contribute, you're more than welcome to
 
 ## 4. Sysadmin linux - ansible examples
 Classic web app 3-tier installation
-   1. [App Mono tier ghost - without ansible - the old non devops way](./sysadmin/1)
+   1. [App Mono tier ghost - without ansible - the old non devops way - priximmo/buster-systemd-ssh](./sysadmin/1)
    2. [App Mono tier ghost install - with ansible](./sysadmin/2)
    3. [App 3-tier ghost install](./sysadmin/3)
 

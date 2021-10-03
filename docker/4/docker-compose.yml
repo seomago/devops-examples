@@ -1,0 +1,17 @@
+# https://hub.docker.com/r/linuxserver/freshrss
+# docker pull ghcr.io/linuxserver/freshrss:amd64-version-1.18.1
+---
+version: "2.1"
+services:
+  freshrss:
+    image: ghcr.io/linuxserver/freshrss:amd64-version-1.18.1
+    container_name: freshrss
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /data/fresh:/config
+    ports:
+      - 9080:80
+    restart: unless-stopped
