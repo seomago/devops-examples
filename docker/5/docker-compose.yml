@@ -1,0 +1,21 @@
+# https://hub.docker.com/r/salihciftci/liman
+# docker pull salihciftci/liman
+---
+version: "3"
+services:
+  liman:
+    image: salihciftci/liman
+    container_name: liman
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - liman:/liman/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 5000:5000
+    restart: unless-stopped
+volumes:
+  liman:
+
