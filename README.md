@@ -33,12 +33,15 @@ If you like this project and you want to contribute, you're more than welcome to
    8. [kubernetes kind provider](./terraform/8)
    9. Terraform AWS EKS cloud examples...
 
-## 2. Docker and Docker-compose examples  
+## 2. Docker and self-hosted examples  
    1. [App 3-tier ngix + mono front ghost + mysql](./docker/1)
-   2. [Adminer/Ghost Multi front nodes with LB without docker](./docker/2)
+   2. [Adminer/Ghost/grocy Multi front nodes with LB without docker](./docker/2)
    3. [Portainer 2.0 + App Multi front](./docker/3)
    4. [freshrss app](./docker/4)
-   5. more to come...
+   5. gitea, sshuttle
+   6. dockly
+   7. semaphore
+   8. more to come...
 
 ## 3. Kubernetes examples
    1. [Creating cluster with kind](./kubernetes/1) / [video](https://youtu.be/fhYSKEy0s8w)

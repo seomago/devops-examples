@@ -7,7 +7,6 @@ services:
   #  volumes:
   #    - /var/run/docker.sock:/tmp/docker.sock:ro
 
-
   whoami1:
     image: jwilder/whoami
     environment:
@@ -20,11 +19,6 @@ services:
     image: dehy/adminer:4.8.0
     environment:
       - VIRTUAL_HOST=preprod.aa.com,adminpre.aa.com
-  #adminer2:
-  #  image: dehy/adminer:4.8.0
-  #  environment:
-  #    - VIRTUAL_HOST=prod.aa.com
-
 
 
 #docker pull jwilder/nginx-proxy

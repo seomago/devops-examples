@@ -1,6 +1,6 @@
 # Local .terraform directories
 **/.terraform/*
-
+**/cluster-key*
 # .tfstate files
 *.tfstate
 *.tfstate.*

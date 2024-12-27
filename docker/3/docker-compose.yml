@@ -1,15 +1,25 @@
 #portainer
 #https://thehomelab.wiki/books/docker/page/portainer-20-update
 # docker pull portainer/portainer-ce:2.6.3
-version: '2'
-
+# https://hub.docker.com/r/hurlenko/filebrowser#docker-compose
+#name: "3.8"
 services:
   portainer:
-    image: portainer/portainer-ce:2.6.3
+    #image: portainer/portainer-ee:2.25.1
+    image: portainer/portainer-ce:2.25.1
     command: -H unix:///var/run/docker.sock
-    restart: always
+    #restart: always
     ports:
-      - 9001:9000
+      - 7004:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /data/portainer_data:/data
+      - /opt/data/portainer:/data
+  filebrowser:
+    image: hurlenko/filebrowser:v2.31.2
+    ports:
+      - 7001:8080
+    volumes:
+      - /opt/data:/data
+      - /opt/data:/config
+    environment:
+      - FB_BASEURL=/
