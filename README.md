@@ -55,9 +55,9 @@ Classic web app 3-tier installation
    2. [App Mono tier ghost install - with ansible](./sysadmin/2)
    3. [App 3-tier ghost install](./sysadmin/3)
 
-## 5. Salt examples
+## 5. Bootloose/awless examples
 
-  1. [Salt install master/minion](./salt/1) /
+  1. [Bootloose install master/minion](./salt/1) /
   2. [Salt basic usage](./salt/2) /
   3. [Salt state file example](./salt/3) /
   4. [Salt state file example](./salt/4) /
@@ -75,8 +75,7 @@ Classic web app 3-tier installation
    8. [App Mono tier ghost install - with bash jupyter notebook](./sysadmin/2)
 
 
-## References
-
+## DevOps References
 * https://github.com/xe-nvdk/easy-kubernetes-cookbook
 * https://github.com/pablokbs/peladonerd
 * https://github.com/alexellis/arkade
@@ -92,7 +91,8 @@ Classic web app 3-tier installation
 * https://gitlab.com/xavki/presentations-terraform-fr
 * https://github.com/zealvora/terraform-beginner-to-advanced-resource
 
-
+## Bootloose references
+* https://github.com/k0sproject/bootloose
 
 ## Feedback / Contribute
 
