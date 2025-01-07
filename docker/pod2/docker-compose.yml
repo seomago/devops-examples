@@ -1,0 +1,65 @@
+# https://hub.docker.com/r/aciklab/liman
+# docker docker.io/gitea/gitea:1.22.6-rootless
+# https://docs.gitea.com/installation/install-with-docker-rootless/
+# grafana
+# https://github.com/ChristianLempa/boilerplates/blob/main/docker-compose/ansiblesemaphore/compose.yaml
+---
+version: "3"
+services:
+  xxgitea:
+    container_name: gitea
+    image: docker.io/gitea/gitea:1.22.6-rootless
+    restart: unless-stopped
+    volumes:
+      - ./data:/var/lib/gitea
+      - ./config:/etc/gitea
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3000:3000"
+      - "2222:2222"
+  adminer1:
+    #container_name: adminer1
+    image: dehy/adminer:4.8.0
+  mysql:
+    image: docker.io/library/mysql:8.4
+    hostname: mysql
+    volumes:
+      - semaphore-mysql:/var/lib/mysql
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=semaphore
+      - MYSQL_USER=semaphore
+      - MYSQL_PASSWORD=secret-password  # change!
+    restart: unless-stopped
+  semaphore:
+    container_name: ansiblesemaphore
+    image: docker.io/semaphoreui/semaphore:v2.11.2
+    user: "${UID}:${GID}"
+    ports:
+      - 3000:3000
+    environment:
+      - SEMAPHORE_DB_USER=semaphore
+      - SEMAPHORE_DB_PASS=secret-password  # change!
+      - SEMAPHORE_DB_HOST=mysql
+      - SEMAPHORE_DB_PORT=3306
+      - SEMAPHORE_DB_DIALECT=mysql
+      - SEMAPHORE_DB=semaphore
+      - SEMAPHORE_PLAYBOOK_PATH=/tmp/semaphore/
+      - SEMAPHORE_ADMIN_PASSWORD=secret-admin-password  # change!
+      - SEMAPHORE_ADMIN_NAME=admin
+      - SEMAPHORE_ADMIN_EMAIL=admin@localhost
+      - SEMAPHORE_ADMIN=admin
+      - SEMAPHORE_ACCESS_KEY_ENCRYPTION=  # add to your access key encryption !
+      - ANSIBLE_HOST_KEY_CHECKING=false  # (optional) change to true if you want to enable host key checking
+    volumes:
+      - ./inventory/:/inventory:ro
+      - ./authorized-keys/:/authorized-keys:ro
+      - ./config/:/etc/semaphore:rw
+    restart: unless-stopped
+    depends_on:
+      - mysql
+
+volumes:
+  semaphore-mysql:
+    driver: local

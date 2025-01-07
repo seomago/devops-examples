@@ -1,0 +1,16 @@
+---
+# https://hub.docker.com/r/linuxserver/grocy/tags
+services:
+  grocy:
+    image: lscr.io/linuxserver/grocy:4.3.0
+    container_name: grocy
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /opt/data/grocy:/config
+    ports:
+      - 9200:80
+      - 9001:9001
+    restart: unless-stopped

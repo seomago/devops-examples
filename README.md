@@ -1,5 +1,6 @@
 # DevOps with examples
 by seomago
+Update: 29/12/2025
 Update: 29/5/2021
 
 ## About the project
@@ -16,20 +17,37 @@ We will use a Ghost blogging web application as an example but all the concepts 
 Simply clone the repository on a testing / dev / debian/ubuntu machine and follow the commands/ instructions.
 You will learn a lot with all these examples.
 
-```
+## shell
+```shell
 git clone git@github.com/seomago/devops-examples
+dexec ubuntu eget --to=/usr/local/bin -k ducaale/xh
 ```
 If you like this project and you want to contribute, you're more than welcome to do it, See contribute section below.
 
 
+
+## hashicat
+* nomad / consul hashicorp
+* foss yearly conferences youtube
+* hashicat
+* roadmap.sh
+* https://github.com/AdminTurnedDevOps
+* https://github.com/AdminTurnedDevOps/100DaysOfContainersAndOrchestration
+* gisela torres devcontainers. backlog
+* opensearch
+* octopus deploy
+* WAF DDOS
+* fluentd
+
+
 ## 1. Terraform examples (with docker)
    1. [Terraform and docker provider example 1](./terraform/1) 
-   2. [Terraform database container](./terraform/2) 
-   3. [wordpress container example](./terraform/3) 
+   2. [Terraform docker database container](./terraform/2) 
+   3. [Docker wordpress container example](./terraform/3) 
    4. [Reverse proxy Traefik with wordpress container](./terraform/4) 
-   5. [Nginx Ghost example](./terraform/5)
+   5. [Docker Nginx Ghost example](./terraform/5)
    6. [Minio S3 container](./terraform/6)
-   7. [Terraform modules](./terraform/7)
+   7. [Terraform modules wordpress](./terraform/7)
    8. [kubernetes kind provider](./terraform/8)
    9. Terraform AWS EKS cloud examples...
 
@@ -37,7 +55,7 @@ If you like this project and you want to contribute, you're more than welcome to
    1. [App 3-tier ngix + mono front ghost + mysql](./docker/1)
    2. [Adminer/Ghost/grocy Multi front nodes with LB without docker](./docker/2)
    3. [Portainer 2.0 + App Multi front](./docker/3)
-   4. [freshrss app](./docker/4)
+   4. [nginx,filebrowser](./docker/4)
    5. gitea, sshuttle
    6. dockly
    7. semaphore
@@ -52,7 +70,7 @@ If you like this project and you want to contribute, you're more than welcome to
    6. [kubernetes and argo CD example](./kubernetes/6) /
    7. more to come...
 
-## 4. Sysadmin linux - ansible examples
+## 4. Sysadmin - ansible examples
 Classic web app 3-tier installation
    1. [App Mono tier ghost - without ansible - the old non devops way - priximmo/buster-systemd-ssh](./sysadmin/1)
    2. [App Mono tier ghost install - with ansible](./sysadmin/2)
@@ -93,9 +111,6 @@ Classic web app 3-tier installation
 ## References Terraform
 * https://gitlab.com/xavki/presentations-terraform-fr
 * https://github.com/zealvora/terraform-beginner-to-advanced-resource
-
-## Bootloose references
-* https://github.com/k0sproject/bootloose
 
 ## Feedback / Contribute
 
