@@ -33,12 +33,17 @@
 * [`docker search`](https://docs.docker.com/engine/reference/commandline/search) searches registry for image.
 * [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull) pulls an image from registry to local machine.
 * [`docker push`](https://docs.docker.com/engine/reference/commandline/push) pushes an image to the registry from local machine.
+
+## Example commands
+
 * `docker system prune` clears dangling images, exited containers and unused layers
 * `docker volume prune` clears the unused volumes
 * `docker network prune`
 * `docker container prune`
 * `docker image prune` clears all unused images
 
+
+## Example commands 2
 `docker ps -a` shows running and stopped containers.
 `docker stats --all` shows a list of all containers, default shows just running.
 ```bash

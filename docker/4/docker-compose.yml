@@ -4,6 +4,7 @@
 ---
 #name: demo3
 services:
+  # https://github.com/atareao/self-hosted/tree/main/filebrowser
   filebrowser:
     container_name: filebrowser
     image: hurlenko/filebrowser:v2.31.2
@@ -45,6 +46,17 @@ services:
     volumes: 
       - /opt/data/nginx2:/var/www/html
 
+# https://github.com/thomiceli/opengist/tree/master
+  opengist:
+    container_name: opengist
+    image: ghcr.io/thomiceli/opengist:1.8.4
+    ports:
+      - 7008:7008
+      - "6157:6157" # HTTP port
+      - "2222:2222" # SSH port, can be removed if you don't use SSH
+    volumes:
+      - "/opt/data/opengist:/opengist"
+
   # caddy:
   #   container_name: caddy
   #   image: caddy:2.4.3
@@ -54,24 +66,26 @@ services:
   #     - /opt/data/caddy:/usr/share/caddy
   #     - /opt/data/config:/data
 
+
+
 # https://dockge.kuma.pet/
 # https://hub.docker.com/r/louislam/dockge
-  xdockge:
-    #image: louislam/dockge:1.4.2 fail
-    image: louislam/dockge:1
-    restart: unless-stopped
-    ports:
-      - 7006:5001
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /opt/data:/app/data
-      # Stacks Directory
-      # ⚠️ 1. FULL path only. No relative path (MUST)
-      # ⚠️ 2. Left Stacks Path === Right Stacks Path (MUST)
-      - /opt/stacks:/opt/stacks
-    environment:
-      # Tell Dockge where to find the stacks
-      - DOCKGE_STACKS_DIR=/opt/stacks
+  # dockge:
+  #   #image: louislam/dockge:1.4.2 fail for some strange reason....
+  #   image: louislam/dockge:1
+  #   restart: unless-stopped
+  #   ports:
+  #     - 7006:5001
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #     - /opt/data:/app/data
+  #     # Stacks Directory
+  #     # ⚠️ 1. FULL path only. No relative path (MUST)
+  #     # ⚠️ 2. Left Stacks Path === Right Stacks Path (MUST)
+  #     - /opt/stacks:/opt/stacks
+  #   environment:
+  #     # Tell Dockge where to find the stacks
+  #     - DOCKGE_STACKS_DIR=/opt/stacks
 
   # freshrss:
   #   #image: ghcr.io/linuxserver/freshrss:amd64-version-1.18.1

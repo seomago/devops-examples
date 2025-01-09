@@ -18,6 +18,8 @@ Tipos de archivos
 * tail -f file.log
 * bat mp3.txt
 * youtubea mp3.txt
+* cal -3
+* cal -y
 
 ## which
 * which ps curl top
@@ -198,3 +200,35 @@ xh -d https://raw.githubusercontent.com/KittyKatt/screenFetch/refs/heads/master/
 * https://github.com/grocy/grocy-docker
 * opengist
 * filebrowser
+
+
+## Preview:
+```yaml
+      --preview <PREVIEW>
+          Preview command
+          
+          Execute the given command for the current line and display the result on the preview window. {} in the command
+          is the placeholder that is replaced to the single-quoted string of the current line. To transform the replace‐
+          ment string, specify field index expressions between the braces (See FIELD INDEX EXPRESSION for the details).
+          
+          e.g. sk --preview='head -$LINES {}'
+               ls -l | sk --preview="echo user={3} when={-4..-2}; cat {-1}" --header-lines=1
+          
+          sk overrides $LINES and $COLUMNS so that they represent the exact size of the preview window.
+          
+          A placeholder expression starting with + flag will be replaced to the space-separated  list  of  the  selected
+          lines (or the current line if no selection was made) individually quoted.
+          
+          e.g.
+               sk --multi --preview='head -10 {+}'
+               git log --oneline | sk --multi --preview 'git show {+1}'
+          
+          Note that you can escape a placeholder pattern by prepending a backslash.
+          
+--
+          is replaced to zero-based ordinal index of the line. Use {+n} if you want  all  index  numbers  when  multiple
+          lines are selected
+          
+          Preview window will be updated even when there is no match for the current query if any of the placeholder ex‐
+          pressions evaluates to a non-empty string.
+```

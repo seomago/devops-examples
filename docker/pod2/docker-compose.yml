@@ -3,24 +3,16 @@
 # https://docs.gitea.com/installation/install-with-docker-rootless/
 # grafana
 # https://github.com/ChristianLempa/boilerplates/blob/main/docker-compose/ansiblesemaphore/compose.yaml
+# atareao/self-hosted
+# https://github.com/atareao/self-hosted
 ---
 version: "3"
 services:
-  xxgitea:
-    container_name: gitea
-    image: docker.io/gitea/gitea:1.22.6-rootless
-    restart: unless-stopped
-    volumes:
-      - ./data:/var/lib/gitea
-      - ./config:/etc/gitea
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
-    ports:
-      - "3000:3000"
-      - "2222:2222"
+
   adminer1:
     #container_name: adminer1
     image: dehy/adminer:4.8.0
+
   mysql:
     image: docker.io/library/mysql:8.4
     hostname: mysql
@@ -32,6 +24,7 @@ services:
       - MYSQL_USER=semaphore
       - MYSQL_PASSWORD=secret-password  # change!
     restart: unless-stopped
+
   semaphore:
     container_name: ansiblesemaphore
     image: docker.io/semaphoreui/semaphore:v2.11.2
@@ -53,13 +46,24 @@ services:
       - SEMAPHORE_ACCESS_KEY_ENCRYPTION=  # add to your access key encryption !
       - ANSIBLE_HOST_KEY_CHECKING=false  # (optional) change to true if you want to enable host key checking
     volumes:
-      - ./inventory/:/inventory:ro
-      - ./authorized-keys/:/authorized-keys:ro
-      - ./config/:/etc/semaphore:rw
+      - /opt/data/sem/inventory/:/inventory:ro
+      - /opt/data/sem/authorized-keys/:/authorized-keys:ro
+      - /opt/data/sem/config/:/etc/semaphore:rw
     restart: unless-stopped
     depends_on:
       - mysql
-
+  # xxgitea:
+  #   container_name: gitea
+  #   image: docker.io/gitea/gitea:1.22.6-rootless
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./data:/var/lib/gitea
+  #     - ./config:/etc/gitea
+  #     - /etc/timezone:/etc/timezone:ro
+  #     - /etc/localtime:/etc/localtime:ro
+  #   ports:
+  #     - "3000:3000"
+  #     - "2222:2222"
 volumes:
   semaphore-mysql:
     driver: local
