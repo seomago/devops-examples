@@ -1,0 +1,10 @@
+services:
+  opengist:
+    image: ghcr.io/thomiceli/opengist:1.8
+    container_name: opengist
+    restart: unless-stopped
+    ports:
+      - "6157:6157" # HTTP port
+      - "2222:2222" # SSH port, can be removed if you don't use SSH
+    volumes:
+      - "$HOME/.opengist:/opengist"

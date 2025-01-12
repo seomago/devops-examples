@@ -1,13 +1,5 @@
 
-## socks
-https://github.com/microservices-demo/microservices-demo
-logging fluentd and elasticsearch
-locust python load performance 
 
-## logging fluentd elasticsearch
-https://github.com/microservices-demo/microservices-demo/blob/master/deploy/docker-compose/docker-compose.logging.yml
-https://github.com/microservices-demo/microservices-demo/blob/master/deploy/docker-compose/docker-compose.yml
-https://docs.bitnami.com/kubernetes/apps/fluentd/
 
 
 ## References 2
@@ -43,12 +35,22 @@ Tonton Jo : https://www.youtube.com/channel/UCnED
 @grafikart_fr @Cookieconnecte @KrustyHack (pas forcement 100% linux mais qui l'aborde un peu)
 
 ## AWS formation
-
+https://github.com/donnemartin/awesome-aws
 https://github.com/open-guides/og-aws
 https://github.com/keenanromain/AWS-SAA-C02-Study-Guide
+https://instances.vantage.sh/
 
+## AWS CLI builder
 https://awsclibuilder.com/home/services/ec2
 https://github.com/wallix/awless
-https://github.com/donnemartin/awesome-aws
-instances EC2
-https://instances.vantage.sh/
+
+
+# logging 
+fluentd and elasticsearch
+locust python load performance 
+
+## logging fluentd elasticsearch KO
+https://github.com/microservices-demo/microservices-demo
+https://github.com/microservices-demo/microservices-demo/blob/master/deploy/docker-compose/docker-compose.logging.yml
+https://github.com/microservices-demo/microservices-demo/blob/master/deploy/docker-compose/docker-compose.yml
+https://docs.bitnami.com/kubernetes/apps/fluentd/
