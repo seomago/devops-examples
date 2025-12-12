@@ -1,0 +1,81 @@
+---
+# Source: example-app/templates/secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: "example-app"
+type: Opaque
+stringData:
+  secret.json: |-
+    {
+      "api_key" : "somesecretgoeshere"
+    }
+
+#kubectl create secret generic mysecret --from-file .\golang\secrets\secret.json
+---
+# Source: example-app/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "example-app"
+data:
+  config.json: |
+    {
+      "environment" : "dev"
+    }
+# kubectl create configmap example-config --from-file ./golang/configs/config.json
+---
+# Source: example-app/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: "example-app"
+  labels:
+    app: "example-app"
+spec:
+  type: LoadBalancer
+  selector:
+    app: "example-app"
+  ports:
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: 5000
+---
+# Source: example-app/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "example-app"
+  labels:
+    app: "example-app"
+spec:
+  selector:
+    matchLabels:
+      app: "example-app"
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      annotations:
+        checksum/config: 81f79fcc59b319b32687ce55ffe89f49f1313dd420334a659d5e5e9b5ad0c8a3
+      labels:
+        app: "example-app"
+    spec:
+      containers:
+      - name: "example-app"
+        image: aimvector/python:1.0.4
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            memory: "50Mi"
+            cpu: "10m"
+          limits:
+            memory: "1024Mi"
+            cpu: "1"

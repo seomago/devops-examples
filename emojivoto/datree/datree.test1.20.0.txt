@@ -1,0 +1,43 @@
+[K| Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K/ Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K- Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K\ Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K| Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K/ Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K- Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K\ Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K| Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K/ Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K- Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K\ Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K| Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K/ Loading... WWWWWWWWWWWWWW[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K>>  File: ../../../../../../home/ubuntu/.datree/k8s-demo.yaml
+
+[V] YAML validation
+[V] Kubernetes schema validation
+
+[X] Policy check
+
+❌  Ensure each container image has a pinned (tag) version  [1 occurrence]
+    - metadata.name: rss-site (kind: Deployment)
+💡  Incorrect value for key `image` - specify an image version to avoid unpleasant "version surprises" in the future
+
+❌  Ensure each container has a configured liveness probe  [1 occurrence]
+    - metadata.name: rss-site (kind: Deployment)
+💡  Missing property object `livenessProbe` - add a properly configured livenessProbe to catch possible deadlocks
+
+❌  Ensure each container has a configured memory limit  [1 occurrence]
+    - metadata.name: rss-site (kind: Deployment)
+💡  Missing property object `limits.memory` - value should be within the accepted boundaries recommended by the organization
+
+❌  Ensure workload has valid label values  [1 occurrence]
+    - metadata.name: rss-site (kind: Deployment)
+💡  Incorrect value for key(s) under `labels` - the vales syntax is not valid so the Kubernetes engine will not accept it
+
+
+(Summary)
+
+- Passing YAML validation: 1/1
+
+- Passing Kubernetes (1.20.0) schema validation: 1/1
+
+- Passing policy check: 0/1
+
++-----------------------------------+------------------------------------------------------+
+| Enabled rules in policy "Default" | 21                                                   |
+| Configs tested against policy     | 1                                                    |
+| Total rules evaluated             | 21                                                   |
+| [36mTotal rules skipped[0m               | [36m0[0m                                                    |
+| [91mTotal rules failed[0m                | [91m4[0m                                                    |
+| [32mTotal rules passed[0m                | [32m17[0m                                                   |
+| See all rules in policy           | https://app.datree.io/login?t=4WLuznAjwwVjEv6zRd9EJh |
++-----------------------------------+------------------------------------------------------+
+
+
