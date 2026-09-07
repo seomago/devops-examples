@@ -28,7 +28,7 @@ sudo service docker start
 sudo systemctl enable docker
 docker version
 docker pull portainer/portainer-ce:2.25.1
-docker pull xxx
+docker pull xxx dockge
 docker run -d -p 80:80 nginx:latest
 ```
 ## EXAMPLES 2:
